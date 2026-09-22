@@ -76,9 +76,9 @@ export function SalesChart({
             </LineChart>
           ) : (
             <PieChart>
-              <Tooltip formatter={(v: number) => formatCurrency(v)} contentStyle={tooltipStyle} />
+              <Tooltip formatter={(v: any) => formatCurrency(Number(v))} contentStyle={tooltipStyle} />
               <Legend wrapperStyle={{ fontSize: 12 }} />
-              <Pie data={data} dataKey="revenue" nameKey="month" cx="50%" cy="50%" outerRadius={100} innerRadius={50} paddingAngle={2} label={(e) => e.month}>
+              <Pie data={data} dataKey="revenue" nameKey="month" cx="50%" cy="50%" outerRadius={100} innerRadius={50} paddingAngle={2} label={(e: any) => e.month}>
                 {data.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
               </Pie>
             </PieChart>
@@ -103,7 +103,7 @@ export function CategoryBreakdown({ data }: { data: CategorySales[] }) {
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" horizontal={false} />
             <XAxis type="number" fontSize={12} tickFormatter={formatCurrency} />
             <YAxis type="category" dataKey="category" fontSize={12} width={90} tickLine={false} axisLine={false} />
-            <Tooltip formatter={(v: number) => formatCurrency(v)} contentStyle={{ borderRadius: 8, border: "1px solid #e2e8f0", fontSize: 12 }} />
+            <Tooltip formatter={(v: any) => formatCurrency(Number(v))} contentStyle={{ borderRadius: 8, border: "1px solid #e2e8f0", fontSize: 12 }} />
             <Bar dataKey="revenue" name="Revenue" fill="#6366f1" radius={[0,6,6,0]} />
           </BarChart>
         </ResponsiveContainer>
