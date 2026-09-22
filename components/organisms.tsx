@@ -69,7 +69,7 @@ export function SalesChart({
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
               <XAxis dataKey="month" fontSize={12} tickLine={false} axisLine={false} />
               <YAxis fontSize={12} tickLine={false} axisLine={false} tickFormatter={formatCurrency} />
-              <Tooltip formatter={(v: number) => formatCurrency(v)} contentStyle={tooltipStyle} />
+              <Tooltip formatter={(v: any) => formatCurrency(Number(v))} contentStyle={tooltipStyle} />
               <Legend wrapperStyle={{ fontSize: 12 }} />
               <Line type="monotone" dataKey="revenue" name="Revenue" stroke="#3b82f6" strokeWidth={2} dot={{ r: 3 }} />
               <Line type="monotone" dataKey="profit"  name="Profit"  stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} />
